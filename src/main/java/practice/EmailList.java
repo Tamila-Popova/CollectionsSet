@@ -1,19 +1,22 @@
 package practice;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.TreeSet;
 
 public class EmailList {
-
+    TreeSet<String> emails = new TreeSet<>();
     public void add(String email) {
-        // TODO: валидный формат email добавляется, email это строка, она быть может любой
-        // принять решение добавлять аргумент email или нет должен этот метод
+        String regex = "[A-z]+@[A-z]+[.][a-z]{2,4}";
+        if (email.matches(regex)) {
+            emails.add(email.toLowerCase());
+            System.out.println("Добавлен новый адрес электронной почты: " + email);
+        } else {
+            System.out.println(Main.WRONG_EMAIL_ANSWER);
+        }
     }
-
     public List<String> getSortedEmails() {
-        // TODO: возвращается сортированный список электронных адресов в алфавитном порядке
-        return new ArrayList<>();
+        System.out.println(emails);
+        return new ArrayList<>(emails);
     }
-
 }
