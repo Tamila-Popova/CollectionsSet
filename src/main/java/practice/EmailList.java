@@ -6,6 +6,7 @@ import java.util.TreeSet;
 
 public class EmailList {
     TreeSet<String> emails = new TreeSet<>();
+
     public void add(String email) {
         String regex = "[A-z]+@[A-z]+[.][a-z]{2,4}";
         if (email.matches(regex)) {
@@ -15,6 +16,7 @@ public class EmailList {
             System.out.println(Main.WRONG_EMAIL_ANSWER);
         }
     }
+
     public List<String> getSortedEmails() {
         System.out.println(emails);
         return new ArrayList<>(emails);
